@@ -2,17 +2,7 @@ import React, { useState } from "react";
 import emailjs from "emailjs-com";
 
 const ContactForm = () => {
-    function sendEmail(e){
-        e.preventDefault();
 
-    emailjs.sendForm("gmail", "template_74xb314", form.current, 'xOjTc2czq_HwhNANc')
-      .then((result) => {
-          console.log(result.text);
-      }, (error) => {
-          console.log(error.text);
-      });
-      e.target.reset();
-    }
   return (
     <div>
       <div class="moi" style={{ height: "50px", width: "43.2%"}}>
@@ -23,7 +13,7 @@ const ContactForm = () => {
       </div>
       <br></br>
         <div class="container" style={{ height: "800px", textAlign: "center" }}>
-        <form onSubmit={sendEmail}>
+        <form>
           <div className="row">
             <div class="col">
               <h5 for="nom" s>

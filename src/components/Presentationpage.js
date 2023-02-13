@@ -33,21 +33,7 @@ const Presentationpage = () => {
             <div class="quisuisje">
               <c>Goodies Japonais (Made in Japan)</c>
             </div>
-            <img
-              src="./html.png"
-              alt="logo react"
-              style={{ width: "8%" }}
-            ></img>
-            <a
-              href="https://banggeddy.github.io/"
-              style={{ textDecoration: "none", color: "#00BFFF" }}
-            >
-              <button style={{ width: "auto", fontSize: "12px" }}>
-                {" "}
-                Naviguer le Portfolio en HTML{" "}
-              </button>
-            </a>
-            <br></br> <br></br>
+          
             <div className="cestmoi">
               {" "}
               <d> JapaShop </d>
