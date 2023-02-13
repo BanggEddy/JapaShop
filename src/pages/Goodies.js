@@ -3,7 +3,7 @@ import Logo from "../components/Logo";
 //Appel la Navigation pour faire fonctionner la navigation
 import Navigation from "../components/Navigation";
 import "bootstrap/dist/css/bootstrap.css";
-import Parcourspage from "../components/Parcourspage";
+import Goodiespage from "../components/Goodiespage";
 
 const Goodies = () => {
   return (
@@ -11,7 +11,7 @@ const Goodies = () => {
 
       <Logo />
       <Navigation />
-      <Parcourspage />
+      <Goodiespage />
       
       </div>
 

@@ -3,13 +3,13 @@ import Logo from "../components/Logo";
 //Appel la Navigation pour faire fonctionner la navigation
 import Navigation from "../components/Navigation";
 import "bootstrap/dist/css/bootstrap.css";
-import Competencesfront from '../components/Competencesfront';
+import Registerpage from '../components/Registerpage';
 const Register = () => {
     return (
         <div>
             <Logo />
             <Navigation />
-            <Competencesfront />
+            <Registerpage />
         </div>
     );
 };
