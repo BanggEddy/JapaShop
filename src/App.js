@@ -1,15 +1,12 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Contact from "./pages/Contact";
-import Fiteddypage from "./pages/Fiteddypage";
-import Haribo from "./pages/Haribo";
-import Harrypotter from "./pages/Harrypotter";
-import Parcours from "./pages/Parcours";
-import Projets from "./pages/Projets";
-import Projetsprofessionnels from "./pages/Projetsprofessionnels";
+
 import Présentation from "./pages/Présentation";
-import Sicilylinespage from "./pages/Sicilylinespage";
-import Competences from "./pages/Competences";
+
+import Goodies from "./pages/Goodies";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
 
 /*Si jamais ton chemin c'est path = rien, il va nous amener dans Home.js*/
 /*Si jamais ton chemin c'est path = /about, il va nous amener dans About.js*/
@@ -20,18 +17,17 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Présentation />} />
-          <Route path="/parcours" element={<Parcours />} />
+          <Route path="/goodies" element={<Goodies />} />
           <Route
-            path="/projetsprofessionnels"
-            element={<Projetsprofessionnels />}
+            path="/login"
+            element={<Login />}
           />
-          <Route path="/projets" element={<Projets />} />
+                    <Route
+            path="/register"
+            element={<Register />}
+          />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/harrypotter" element={<Harrypotter />} />
-          <Route path="/haribo" element={<Haribo />} />
-          <Route path="/fiteddypage" element={<Fiteddypage />} />
-          <Route path="/sicilylinespage" element={<Sicilylinespage />} />
-          <Route path="/competences" element={<Competences />} />
+
         </Routes>
       </BrowserRouter>
     </div>

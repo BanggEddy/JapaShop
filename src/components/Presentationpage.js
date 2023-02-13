@@ -10,7 +10,7 @@ const Presentationpage = () => {
             <img
               src="./frontimggif.gif"
               alt="frontimggif"
-              style={{ width: "80%" }}
+              style={{ width: "90%" }}
             ></img>
           </div>
           <div className="col">
@@ -67,11 +67,8 @@ const Presentationpage = () => {
               Être passionné par la culture Otaku anime / manga japonaise est
               souvent compliquée de se procurer les dernières nouveautés de
               figurines, peluches, goodies d’anime sans se ruiner en convention.
-              En choisissant d’utiliser Neokyo, vous achetez directement auprès
-              des boutiques japonaises. Neokyo agit alors en tant
-              qu’intermédiaire, vous permettant ainsi l’acquisition rapide et au
-              vrai prix japonais de produits dérivés de tous vos animes et
-              mangas favoris.
+              En choisissant d’utiliser JapaShop, vous achetez directement auprès
+              des boutiques japonaises. 
             </div>
             <br></br>
             <div class="quisuisje">
@@ -94,10 +91,7 @@ const Presentationpage = () => {
               Pour tous les fans de japanimation, de cosplay ou de jeux vidéo
               japonais, le japon est une source insatiable de nouveautés. Chaque
               saison offre son lot de nouvelles séries et de goodies d’animé
-              dédiés. Avec JapaShop, vous ouvrez vos champs de possibilités ! Il
-              devient facile de vous procurer tous les goodies d’anime,
-              figurines, carte pokemon, manga japonais et tout autres produits
-              japonais. Retrouvez un vaste choix de produits dérivés officiels,
+              dédiés. Retrouvez un vaste choix de produits dérivés officiels,
               directement depuis la barre de recherche Neokyo. Vous pouvez
               également remplir le formulaire de demande d’achat sur les
               boutiques animé en ligne de produits d'anime/manga japonaises .

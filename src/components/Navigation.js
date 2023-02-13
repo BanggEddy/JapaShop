@@ -11,30 +11,25 @@ const Navigation = () => {
         </NavLink>
 
         <NavLink
-          to="/parcours"
+          to="/goodies"
           className={(nav) => (nav.isActive ? "nav-active" : "")}
         >
           
-          <li> Parcours </li>
+          <li> Goodies </li>
         </NavLink>
         <NavLink
-          to="/competences"
+          to="/login"
           className={(nav) => (nav.isActive ? "nav-active" : "")}
         >
           
-          <li> Compétences </li>
+          <li> Login </li>
         </NavLink>
-        <NavLink
-          to="/projetsprofessionnels"
+                <NavLink
+          to="/register"
           className={(nav) => (nav.isActive ? "nav-active" : "")}
         >
-          <li> Projets Professionnels </li>
-        </NavLink>
-        <NavLink
-          to="/projets"
-          className={(nav) => (nav.isActive ? "nav-active" : "")}
-        >
-          <li> Projets </li>
+          
+          <li> Register </li>
         </NavLink>
         <NavLink
           to="/contact"
@@ -42,6 +37,8 @@ const Navigation = () => {
         >
           <li> Contacts </li>
         </NavLink>
+
+
       </ul>
     </div>
   );
