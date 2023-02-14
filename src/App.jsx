@@ -12,6 +12,7 @@ import Login from "./pages/Login";
 /*Si jamais ton chemin c'est path = /about, il va nous amener dans About.js*/
 
 const App = () => {
+  
   return (
     <div>
       <BrowserRouter>

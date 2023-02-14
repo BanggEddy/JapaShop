@@ -77,7 +77,17 @@ constructor(props){
         return(
             <div> 
                 <div className='container'> 
-                    <div className='form-div'></div>
+                <div className="row">
+                <div className="col">
+            <img
+              src="./register2.gif"
+              alt="registerback"
+              style={{ width: "85%" }}
+            ></img>
+          </div>
+
+<div className="col">
+<div className='form-div'></div>
                         <form onSubmit={this.onSubmit}> 
                             <input type='text' 
                             placeholder='Full Name' 
@@ -109,6 +119,10 @@ constructor(props){
 <br></br>
                             <input type='submit' style={{height:"50px"}}  className="btn btn-danger btn-block" value='Submit' />
                         </form> 
+</div>
+
+                </div>
+
                     </div>
                 </div>
         );
