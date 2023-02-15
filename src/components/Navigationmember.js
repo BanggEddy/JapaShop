@@ -22,7 +22,7 @@ const Navigationmember = () => {
           className={(nav) => (nav.isActive ? "nav-active" : "")}
         >
           
-          <li> Login out</li>
+          <li> Log out</li>
         </NavLink>
 
         <NavLink
