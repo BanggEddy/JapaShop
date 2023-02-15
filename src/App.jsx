@@ -32,6 +32,7 @@ const App = () => {
           />
           <Route path="/contact" element={<Contact />} />
           <Route path="/member" element={<Member />} />
+          <Route path="/loginout" element={<Présentation />} />
 
         </Routes>
       </BrowserRouter>
