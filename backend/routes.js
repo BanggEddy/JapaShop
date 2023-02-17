@@ -22,6 +22,27 @@ router.post('/signup', async (request, response) => { //When we're in signup pag
     .catch(error =>{
         response.json(error)
     })
-})
+});
+router.post('/login', async(req, res)=>{
+    
+    const { username, password } = req.body;
+    try {
+        //check for user id
+        const user = await SignUpTemplateCopy.findOne({username: username})
+        if(!user) res.json({message: "Invalid ID#"})
+        //bcrypt.compare to check and compare the hashed password
+        if(user && (await bcrypt.compare(password, user.password))){
+            console.log(req.body);
+            res.redirect('/member');
+
+        }else{
+            res.status(400)
+            res.json({auth: false, message: "Invalid ID# or password!"})
+        }
+    } catch (err) {
+        console.error(err.message)
+    }
+    })
+
 
 module.exports = router

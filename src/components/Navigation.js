@@ -37,6 +37,12 @@ const Navigation = () => {
         >
           <li> Contacts </li>
         </NavLink>
+        <NavLink
+          to="/admin"
+          className={(nav) => (nav.isActive ? "nav-active" : "")}
+        >
+          <li> Admin </li>
+        </NavLink>
 
 
       </ul>

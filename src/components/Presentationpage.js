@@ -1,7 +1,6 @@
 import React from "react";
 
 const Presentationpage = () => {
-  
   return (
     <div>
       <div className="saut"></div>
@@ -11,13 +10,13 @@ const Presentationpage = () => {
             <img
               src="./frontimggif.gif"
               alt="frontimggif"
-              style={{ width: "90%" }}
+              style={{ width: "80%" }}
             ></img>
           </div>
           <div className="col">
             <div class="moi">
               <b>
-                Welcome to <span id="typewriter"> JapaShop</span>
+                Welcome t <span id="typewriter"> JapaShop</span>
                 <span id="cursor">|</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -34,7 +33,8 @@ const Presentationpage = () => {
             <div class="quisuisje">
               <c>Goodies Japonais (Made in Japan)</c>
             </div>
-          
+
+            <br></br> 
             <div className="cestmoi">
               {" "}
               <d> JapaShop </d>
@@ -78,9 +78,7 @@ const Presentationpage = () => {
               Pour tous les fans de japanimation, de cosplay ou de jeux vidéo
               japonais, le japon est une source insatiable de nouveautés. Chaque
               saison offre son lot de nouvelles séries et de goodies d’animé
-              dédiés. Retrouvez un vaste choix de produits dérivés officiels,
-              directement depuis la barre de recherche Neokyo. Vous pouvez
-              également remplir le formulaire de demande d’achat sur les
+              dédiés. Vous pouvez également remplir le formulaire de demande d’achat sur les
               boutiques animé en ligne de produits d'anime/manga japonaises .
 
             </div>
