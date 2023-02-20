@@ -78,9 +78,9 @@ class Registerpage extends Component {
           <div className="row">
             <div className="col">
               <img
-                src="./register2.gif"
+                src="./adminfront3.gif"
                 alt="registerback"
-                style={{ width: "85%" }}
+                style={{ width: "70%" }}
               ></img>
             </div>
 

@@ -3,6 +3,7 @@ const SignUpTemplateCopy = require('./models/SignUpModel')
 const router = express.Router()
 const bcrypt = require('bcrypt')
 const AdminTemplateCopy = require('./models/AdminModel')
+const ProductsTemplateCopy = require('./models/ProductsModel')
 //.pot = Post Request
 router.post('/signup', async (request, response) => { //When we're in signup page :
 
@@ -17,6 +18,23 @@ router.post('/signup', async (request, response) => { //When we're in signup pag
         password:securePassword,
     })
     signedUpUser.save()//Save all data of user request
+    .then(data => {
+        response.json(data)
+    })
+    .catch(error =>{
+        response.json(error)
+    })
+});
+router.post('/addproduct', async (request, response) => { //When we're in signup page :
+
+    const addProducs = new ProductsTemplateCopy({ //When they submit, they create a new SignUp
+
+        nameproduct:request.body.nameproduct, //grab the fullName of the request they enter (request = post)
+        imageproduct:request.body.imageproduct,
+        descriptionproduct:request.body.descriptionproduct,
+        quantityproduct:request.body.quantityproduct,
+    })
+    addProducs.save()//Save all data of user request
     .then(data => {
         response.json(data)
     })

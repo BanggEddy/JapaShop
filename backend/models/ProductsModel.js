@@ -14,7 +14,7 @@ const ProductsTemplate = new mongoose.Schema({
         required:true,
         unique:true,
     },
-    quantityprouct:{
+    quantityproduct:{
         type:String,
         required:true,
     },

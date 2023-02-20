@@ -62,7 +62,7 @@ class Adminpage extends Component {
               <img
                 src="./adminfront4.gif"
                 alt="registerback"
-                style={{ width: "55%" }}
+                style={{ width: "45%" }}
               ></img>
             </div>
 
@@ -95,6 +95,7 @@ class Adminpage extends Component {
                   value="Submit"
                 />
               </form>
+              
             </div>
           </div>
         </div>
