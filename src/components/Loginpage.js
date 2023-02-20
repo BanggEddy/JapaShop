@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
 //Axios permet de passer les données dans le backend, mongoDB
 import axios from "axios";
 
@@ -60,7 +59,7 @@ class Loginpage extends Component {
           <div className="row">
             <div className="col">
               <img
-                src="./kaido.gif"
+                src="./memberfront.gif"
                 alt="registerback"
                 style={{ width: "55%" }}
               ></img>

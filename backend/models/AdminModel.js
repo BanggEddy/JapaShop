@@ -1,6 +1,10 @@
 const mongoose = require('mongoose')
 const AdminTemplate = new mongoose.Schema({
     //What u collect from the user: (the DataBases)
+    fullNameadmin:{
+        type:String,
+        requrie:true,
+    },
     usernameadmin:{
         type:String,
         required:true,
@@ -9,10 +13,6 @@ const AdminTemplate = new mongoose.Schema({
         type:String,
         required:true,
     },
-    date:{
-        type:Date,
-        default:Date.now,
-    },
 })
 
-module.exports = mongoose.model('users', AdminTemplate )
+module.exports = mongoose.model('admin', AdminTemplate )
