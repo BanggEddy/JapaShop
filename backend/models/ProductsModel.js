@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const ProductsModel = new mongoose.Schema({
+const ProductsTemplate = new mongoose.Schema({
     //What u collect from the user: (the DataBases)
     nameproduct:{
         type:String,
@@ -24,4 +24,4 @@ const ProductsModel = new mongoose.Schema({
     },
 })
 
-module.exports = mongoose.model('users', ProductsModel )
+module.exports = mongoose.model('products', ProductsTemplate )
