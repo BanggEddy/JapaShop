@@ -15,9 +15,9 @@ import Delete from "./pages/Delete";
 import Add from "./pages/Add";
 import Goodiesadmin from "./pages/Goodiesadmin";
 import Presentationadmin from "./pages/Presentationadmin";
-import Contactmember from "./components/Contactmember";
-import Presentationmember from "./components/Presentationmember";
-import Goodiesmember from "./components/Goodiesmember";
+import Contactmember from "./pages/Contactmember";
+import Presentationmember from "./pages/Presentationmember";
+import Goodiesmember from "./pages/Goodiesmember";
 
 /*Si jamais ton chemin c'est path = rien, il va nous amener dans Home.js*/
 /*Si jamais ton chemin c'est path = /about, il va nous amener dans About.js*/
