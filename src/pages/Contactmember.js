@@ -10,7 +10,6 @@ const Contactmember = () => {
     <div>
       <Logo />
       <Navigationmember />
-      <br></br>
       <Contactpagemember />
     </div>
 
