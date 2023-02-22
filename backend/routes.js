@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt')
 const AdminTemplateCopy = require('./models/AdminModel')
 const ProductsTemplateCopy = require('./models/ProductsModel')
 //.pot = Post Request
+
 router.post('/signup', async (request, response) => { //When we're in signup page :
 
     const saltPassword = await bcrypt.genSalt(10) //Generate the salt by 10
@@ -60,7 +61,7 @@ router.post('/login', async(req, res)=>{
     } catch (err) {
         console.error(err.message)
     }
-    })
+    });
     router.post('/loginadmin', async(req, res)=>{
     
         const { usernameadmin, passwordadmin } = req.body;
@@ -79,6 +80,42 @@ router.post('/login', async(req, res)=>{
         } catch (err) {
             console.error(err.message)
         }
-        })
+        });
+
+      /*  router.put("/updateproduct", (req, res) => {
+            if(!ObjectID.isValidObjectId(req.params.nameproduct)) {
+                return res.status(400).send("ID unknow :" + req.params.nameproduct)
+            }
+            const updateRecord = {
+                imageproduct: req.body.imageproduct,
+                descriptionproduct: req.body.descriptionproduct,
+                quantityproduct: req.body.quantityproduct,
+
+            }
+            //Mettre à jour la BDD
+            PostsModel.findByIdAndUpdate (
+                req.params.id,
+                { $set: updateRecord },
+                { new: true },
+                (err,docs) => {
+                    if(!err) res.send(docs) //Si y'a pas d'erreur tu m'envoies la docs
+                    else console.log("Update error : "+ err);
+                    }
+                )
+            })
+*/
+router.get('/goodies', function(req, res, next) {
+      
+    ProductsTemplateCopy.find((err, docs) => {
+        if (!err) {
+            res.render("list", {
+                data: docs
+            });
+        } else {
+            console.log('Failed to retrieve the Course List: ' + err);
+        }
+    });
+ 
+});
 
 module.exports = router

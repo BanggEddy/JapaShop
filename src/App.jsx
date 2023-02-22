@@ -15,6 +15,9 @@ import Delete from "./pages/Delete";
 import Add from "./pages/Add";
 import Goodiesadmin from "./pages/Goodiesadmin";
 import Presentationadmin from "./pages/Presentationadmin";
+import Contactmember from "./components/Contactmember";
+import Presentationmember from "./components/Presentationmember";
+import Goodiesmember from "./components/Goodiesmember";
 
 /*Si jamais ton chemin c'est path = rien, il va nous amener dans Home.js*/
 /*Si jamais ton chemin c'est path = /about, il va nous amener dans About.js*/
@@ -47,6 +50,11 @@ const App = () => {
           <Route path="/delete" element={<Delete />} />
           <Route path="/goodiesadmin" element={<Goodiesadmin />} />
           <Route path="/presentationadmin" element={<Presentationadmin />} />
+          <Route path="/contactmember" element={<Contactmember />} />
+          <Route path="/presentationmember" element={<Presentationmember />} />
+          <Route path="/goodiesmember" element={<Goodiesmember />} />
+
+
 
         </Routes>
       </BrowserRouter>

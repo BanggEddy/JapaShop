@@ -6,12 +6,12 @@ const Navigationmember = () => {
   return (
     <div className="navigation">
       <ul>
-        <NavLink to="/" className={(nav) => (nav.isActive ? "nav-active" : "")}>
+        <NavLink to="/presentationmember" className={(nav) => (nav.isActive ? "nav-active" : "")}>
           <li> Présentation </li>
         </NavLink>
 
         <NavLink
-          to="/goodies"
+          to="/goodiesmember"
           className={(nav) => (nav.isActive ? "nav-active" : "")}
         >
           
@@ -26,7 +26,7 @@ const Navigationmember = () => {
         </NavLink>
 
         <NavLink
-          to="/contact"
+          to="/contactmember"
           className={(nav) => (nav.isActive ? "nav-active" : "")}
         >
           <li> Contacts </li>

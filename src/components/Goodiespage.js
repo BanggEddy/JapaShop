@@ -4,17 +4,8 @@ const Goodiespage = () => {
   return (
     <div>
 <h1>GoodiesPage </h1>
-      
-
-
-
-
-
-
-
-
-
-    </div>
+ 
+</div>
 
   );
 };
