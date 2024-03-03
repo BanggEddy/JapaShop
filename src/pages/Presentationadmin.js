@@ -2,8 +2,8 @@ import React from "react";
 import Logo from "../components/Logo";
 //Appel la Navigation pour faire fonctionner la navigation
 import "bootstrap/dist/css/bootstrap.css";
-import Presentationpageadmin from "../components/Presentationpageadmin";
-import Navigationadmin from "../components/Navigationadmin";
+import Presentationpageadmin from "../components/admin/Presentationpageadmin";
+import Navigationadmin from "../components/admin/Navigationadmin";
 
 const Presentationadmin = () => {
   return (
@@ -14,6 +14,5 @@ const Presentationadmin = () => {
     </div>
   );
 };
-
 
 export default Presentationadmin;

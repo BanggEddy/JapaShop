@@ -27,7 +27,7 @@ body::after {
   -webkit-background-size: cover;
   -o-background-size: cover;
   background-attachment:fixed;
-  opacity: 0.7;
+  opacity: 0.8;
   top: 0;
   left: 0;
   bottom: 0;
@@ -52,7 +52,7 @@ body::after {
 
 .logo
 {
-    color: #e480d5;
+    color: #000000;
     font-weight: 700;
     text-decoration: none !important;
     text-transform: uppercase;
@@ -75,12 +75,15 @@ body::after {
     
   }
   .cestmoipres {
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 17px;
+    text-align: left;
+    font-size: 12px;
+    width: 50%; 
+    float: left; 
+    clear: both; 
   }
+  
   .moi{
-    height: 45px;
+    height: 155px;
     font-size: 30px;
     margin-left: auto;
     margin-right: auto;
@@ -97,6 +100,11 @@ body::after {
     border-radius: 10%;
 
 }
+o {
+  font-size: 80px !important;
+  font-weight: 800; 
+}
+
 .affich2{
     height:10px;
     text-align: center;
@@ -114,12 +122,12 @@ h1 {
   }
 
   #typewriter {
-    color: #0072ef;
+    color: #e480d5;
     font-weight: bold;
   }
 
   #cursor {
-    color: #0072ef;
+    color: #000000;
     animation: blink 1s linear infinite;
   }
 
@@ -135,11 +143,95 @@ h1 {
     background-color: transparent;
     transition: all 0.3s ease-in-out;
     border-radius: 2%;
-    border: solid rgb(39, 158, 167) !important;
-    box-shadow: 1px 2px 30px 3px rgb(39, 158, 167)  ;
+    border: solid rgb(0, 0, 0) !important;
+    box-shadow: 1px 2px 30px 3px rgb(0, 0, 0)  ;
     
   }
 
+  /*Affich goodies*/
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .subtitle {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .product-card {
+    width: 300px;
+    border: 2px solid #d9d9d9;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  
+  .product-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .product-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #d9d9d9;
+  }
+  
+  .product-details {
+    padding: 20px;
+  }
+  
+  .product-name {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+  
+  .product-description {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+  
+  .product-info {
+    margin-bottom: 10px;
+  }
+  
+  .product-quantity,
+  .product-date {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+  }
+  
+  .product-button {
+    background-color: #ff4500;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .product-button:hover {
+    background-color: #ff6347;
+  }
+  
+  
 
 
   

@@ -11,14 +11,14 @@
 
 
       li {
-        color: #e480d5;
+        color: #000000;
         transition: 0.2s;
         cursor: pointer;
         padding: 10px 15px;
         
 
         &:hover {
-          color: #c06db5;
+          color: #918c90;
         }
       }
     }
@@ -30,7 +30,7 @@
         content: "";
         height: 4px;
         width: 0;
-        background: #cc1bb4;
+        background: #000000;
         position: absolute;
         border-radius: 10px;
         bottom: 0px;

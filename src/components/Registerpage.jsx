@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-//Axios permet de passer les données dans le backend, mongoDB
 import axios from "axios";
 
 class Registerpage extends Component {
@@ -13,16 +12,13 @@ class Registerpage extends Component {
       password: "",
     };
 
-    //pass the data as an argument to the function of a class based component. (if we don't have, in the console of F12 will show errors)
     this.changeFullName = this.changeFullName.bind(this);
     this.changeEmail = this.changeEmail.bind(this);
     this.changeUsername = this.changeUsername.bind(this);
     this.changePassword = this.changePassword.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
-  //permet de changer et le sauvegarde le value du constructor() dans this.state
-  //Change the this.state value
-  //Take the value of the event and save it
+
   changeFullName(event) {
     this.setState({
       fullName: event.target.value,
@@ -43,21 +39,18 @@ class Registerpage extends Component {
       password: event.target.value,
     });
   }
-  //Il permet de garder the value of all datas
-  //The all page refresh
+
   onSubmit(event) {
     event.preventDefault();
 
-    //Il est enregistré dans registered et ensuite on le met dans le backend
     const registered = {
       fullName: this.state.fullName,
       username: this.state.username,
       email: this.state.email,
       password: this.state.password,
     };
-    //Send to the server(in this port), and the registered send to this port, and the port will send to mongodb
     axios
-      .post("http://127.0.0.1:4000/app/signup ", registered)
+      .post("http://127.0.0.1:4000/api/signup ", registered)
       .then((response) => console.log(response.data));
 
     this.setState({
@@ -67,31 +60,27 @@ class Registerpage extends Component {
       password: "",
     });
   }
-
-  //Front and take the value
-  /*onChange permet de déclancher les méthodes pour faire des actions '' */
-
   render() {
+    const { fullName, username, email, password } = this.state;
+    const isFormValid = fullName && username && email && password;
+
     return (
       <div>
         <div className="container">
           <div className="row">
             <div className="col">
-              <img
-                src="./adminfront3.gif"
-                alt="registerback"
-                style={{ width: "70%" }}
-              ></img>
-            </div>
-
-            <div className="col">
-              <div className="form-div"></div>
+              <center>
+                <h2 className="bold">
+                  Créez votre compte
+                </h2>
+              </center>   
+              <br></br>           
               <form onSubmit={this.onSubmit}>
                 <input
                   type="text"
                   placeholder="Full Name"
                   onChange={this.changeFullName}
-                  value={this.state.fullName}
+                  value={fullName}
                   style={{ height: "80px" }}
                   className="form-control form-group"
                 />
@@ -100,7 +89,7 @@ class Registerpage extends Component {
                   type="text"
                   placeholder="Username"
                   onChange={this.changeUsername}
-                  value={this.state.username}
+                  value={username}
                   style={{ height: "80px" }}
                   className="form-control form-group"
                 />
@@ -108,7 +97,7 @@ class Registerpage extends Component {
                 <input
                   type="text"
                   placeholder="Email"
-                  value={this.state.email}
+                  value={email}
                   onChange={this.changeEmail}
                   style={{ height: "80px" }}
                   className="form-control form-group"
@@ -118,7 +107,7 @@ class Registerpage extends Component {
                   type="password"
                   placeholder="Password"
                   onChange={this.changePassword}
-                  value={this.state.password}
+                  value={password}
                   style={{ height: "80px" }}
                   className="form-control form-group"
                 />
@@ -126,8 +115,9 @@ class Registerpage extends Component {
                 <input
                   type="submit"
                   style={{ height: "50px" }}
-                  className="btn btn-danger btn-block"
+                  className={`btn btn-danger btn-block ${isFormValid ? "" : "disabled"}`}
                   value="Submit"
+                  disabled={!isFormValid}
                 />
               </form>
             </div>
@@ -136,6 +126,7 @@ class Registerpage extends Component {
       </div>
     );
   }
+
 }
 
 export default Registerpage;

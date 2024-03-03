@@ -8,7 +8,6 @@ import Goodies from "./pages/Goodies";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Member from "./pages/Member";
-import Admin from "./pages/Admin";
 import Admintrue from "./pages/Admintrue";
 import Update from "./pages/Update";
 import Delete from "./pages/Delete";
@@ -18,9 +17,6 @@ import Presentationadmin from "./pages/Presentationadmin";
 import Contactmember from "./pages/Contactmember";
 import Presentationmember from "./pages/Presentationmember";
 import Goodiesmember from "./pages/Goodiesmember";
-
-/*Si jamais ton chemin c'est path = rien, il va nous amener dans Home.js*/
-/*Si jamais ton chemin c'est path = /about, il va nous amener dans About.js*/
 
 const App = () => {
   
@@ -32,18 +28,13 @@ const App = () => {
           <Route path="/presentation" element={<Présentation />} />
 
           <Route path="/goodies" element={<Goodies />} />
-          <Route
-            path="/login"
-            element={<Login />}
-          />
-                    <Route
-            path="/register"
-            element={<Register />}
-          />
+          <Route path="/login" element={<Login />}/>
+          <Route path="/register" element={<Register />}/>
           <Route path="/contact" element={<Contact />} />
           <Route path="/member" element={<Member />} />
+
+          
           <Route path="/loginout" element={<Présentation />} />
-          <Route path="/admin" element={<Admin />} />
           <Route path="/admintrue" element={<Admintrue />} />
           <Route path="/add" element={<Add />} />
           <Route path="/update" element={<Update />} />

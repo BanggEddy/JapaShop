@@ -1,5 +1,4 @@
 import React from "react";
-//Permet de naviguer entre les pages (react-router-dom)
 import { NavLink } from "react-router-dom";
 
 const Navigation = () => {
@@ -14,21 +13,18 @@ const Navigation = () => {
           to="/goodies"
           className={(nav) => (nav.isActive ? "nav-active" : "")}
         >
-          
           <li> Goodies </li>
         </NavLink>
         <NavLink
           to="/login"
           className={(nav) => (nav.isActive ? "nav-active" : "")}
         >
-          
           <li> Login </li>
         </NavLink>
-                <NavLink
+        <NavLink
           to="/register"
           className={(nav) => (nav.isActive ? "nav-active" : "")}
         >
-          
           <li> Register </li>
         </NavLink>
         <NavLink
@@ -37,14 +33,6 @@ const Navigation = () => {
         >
           <li> Contacts </li>
         </NavLink>
-        <NavLink
-          to="/admin"
-          className={(nav) => (nav.isActive ? "nav-active" : "")}
-        >
-          <li> Admin </li>
-        </NavLink>
-
-
       </ul>
     </div>
   );

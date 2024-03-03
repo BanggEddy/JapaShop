@@ -1,9 +1,8 @@
 import React from "react";
 import Logo from "../components/Logo";
-//Appel la Navigation pour faire fonctionner la navigation
 import "bootstrap/dist/css/bootstrap.css";
-import Admintruepage from "../components/Admintruepage";
-import Navigationadmin from "../components/Navigationadmin";
+import Admintruepage from "../components/admin/Admintruepage";
+import Navigationadmin from "../components/admin/Navigationadmin";
 
 const Admintrue = () => {
   return (
@@ -13,11 +12,7 @@ const Admintrue = () => {
       <br></br>
       <Admintruepage />
     </div>
-
-    
   );
-  
 };
-
 
 export default Admintrue;
