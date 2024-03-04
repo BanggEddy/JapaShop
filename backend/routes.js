@@ -84,7 +84,7 @@ router.get("/api/goodies", async (req, res) => {
 });
 
 /*ADMINS */
-
+// Route pour afficher les produits
 router.get("/api/goodiesadmin", async (req, res) => {
   try {
     const products = await Product.find();
@@ -105,7 +105,7 @@ const storage = multer.diskStorage({
   },
 });
 const upload = multer({ storage: storage });
-// Route pour mettre à jour un produit
+// Route pour mettre à jour un produit avec l'image
 router.put(
   "/api/goodiesupdate/:productId",
   upload.single("imageproduct"),
@@ -149,7 +149,7 @@ router.put(
     }
   }
 );
-
+// Route pour ajouter un new product
 router.post(
   "/addproduct",
   upload.single("imageproduct"),
@@ -168,7 +168,7 @@ router.post(
     }
   }
 );
-
+// Route pour récupérer un produit selon l'id
 router.get("/api/goodiesadmin/:productId", async (req, res) => {
   const { productId } = req.params;
 
@@ -187,5 +187,27 @@ router.get("/api/goodiesadmin/:productId", async (req, res) => {
       .json({ message: "Erreur lors de la récupération du produit" });
   }
 });
+// Route pour supprimer un produit
+router.delete("/api/goodiesdelete/:productId", async (req, res) => {
+  try {
+    const productId = req.params.productId;
 
+    const product = await Product.findById(productId);
+    const imageToDelete = product.imageproduct;
+
+    const imagePath = path.join(__dirname, "../public/images", imageToDelete);
+    if (fs.existsSync(imagePath)) {
+      fs.unlinkSync(imagePath);
+    }
+
+    await Product.findByIdAndRemove(productId);
+
+    res.json({ message: "Produit supprimé avec succès" });
+  } catch (error) {
+    console.error("Erreur lors de la suppression du produit:", error);
+    res.status(500).json({
+      message: "Une erreur s'est produite lors de la suppression du produit",
+    });
+  }
+});
 module.exports = router;
