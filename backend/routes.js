@@ -27,46 +27,6 @@ router.post("/api/signup", async (request, response) => {
     });
 });
 
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "../public/images");
-  },
-  filename: function (req, file, cb) {
-    cb(null, Date.now() + "-" + file.originalname);
-  },
-});
-const upload = multer({ storage: storage });
-
-router.post(
-  "/addproduct",
-  upload.single("imageproduct"),
-  async (request, response) => {
-    try {
-      const addProducs = new ProductsTemplateCopy({
-        nameproduct: request.body.nameproduct,
-        imageproduct: request.file.filename,
-        descriptionproduct: request.body.descriptionproduct,
-        quantityproduct: request.body.quantityproduct,
-      });
-      const savedProduct = await addProducs.save();
-      response.json(savedProduct);
-    } catch (error) {
-      response.status(500).json({ error: error.message });
-    }
-  }
-);
-
-module.exports = router;
-
-router.get("/api/goodiesadmin", async (req, res) => {
-  try {
-    const products = await Product.find();
-    res.json(products);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-});
-
 router.post("/login", async (req, res) => {
   const { username, password } = req.body;
   try {
@@ -106,16 +66,126 @@ router.post("/loginadmin", async (req, res) => {
   }
 });
 
-router.get("/goodies", function (req, res, next) {
-  ProductsTemplateCopy.find((err, docs) => {
-    if (!err) {
-      res.render("list", {
-        data: docs,
+router.get("/api/goodiesmember", async (req, res) => {
+  try {
+    const products = await Product.find();
+    res.json(products);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+router.get("/api/goodies", async (req, res) => {
+  try {
+    const products = await Product.find();
+    res.json(products);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+/*ADMINS */
+
+router.get("/api/goodiesadmin", async (req, res) => {
+  try {
+    const products = await Product.find();
+    res.json(products);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+const fs = require("fs");
+const path = require("path");
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "../public/images");
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + "-" + file.originalname);
+  },
+});
+const upload = multer({ storage: storage });
+// Route pour mettre à jour un produit
+router.put(
+  "/api/goodiesupdate/:productId",
+  upload.single("imageproduct"),
+  async (req, res) => {
+    try {
+      const productId = req.params.productId;
+      const updatedProductData = req.body;
+      const product = await Product.findById(productId);
+      const oldImage = product.imageproduct;
+
+      if (req.file && oldImage) {
+        const imagePath = path.join(__dirname, "../public/images", oldImage);
+        if (fs.existsSync(imagePath)) {
+          fs.unlinkSync(imagePath); // Supprimez l'ancienne image
+        }
+      }
+
+      if (req.file) {
+        updatedProductData.imageproduct = req.file.filename;
+      }
+
+      const updatedProduct = await Product.findByIdAndUpdate(
+        productId,
+        updatedProductData,
+        { new: true }
+      );
+
+      if (!updatedProduct) {
+        return res.status(404).json({ message: "Produit non trouvé" });
+      }
+
+      res.json({
+        message: "Produit mis à jour avec succès",
+        product: updatedProduct,
       });
-    } else {
-      console.log("Failed to retrieve the Course List: " + err);
+    } catch (error) {
+      console.error("Erreur lors de la mise à jour du produit:", error);
+      res.status(500).json({
+        message: "Une erreur s'est produite lors de la mise à jour du produit",
+      });
     }
-  });
+  }
+);
+
+router.post(
+  "/addproduct",
+  upload.single("imageproduct"),
+  async (request, response) => {
+    try {
+      const addProducs = new ProductsTemplateCopy({
+        nameproduct: request.body.nameproduct,
+        imageproduct: request.file.filename,
+        descriptionproduct: request.body.descriptionproduct,
+        quantityproduct: request.body.quantityproduct,
+      });
+      const savedProduct = await addProducs.save();
+      response.json(savedProduct);
+    } catch (error) {
+      response.status(500).json({ error: error.message });
+    }
+  }
+);
+
+router.get("/api/goodiesadmin/:productId", async (req, res) => {
+  const { productId } = req.params;
+
+  try {
+    const product = await Product.findById(productId);
+
+    if (!product) {
+      return res.status(404).json({ message: "Produit non trouvé" });
+    }
+
+    res.status(200).json(product);
+  } catch (error) {
+    console.error("Erreur lors de la récupération du produit:", error);
+    res
+      .status(500)
+      .json({ message: "Erreur lors de la récupération du produit" });
+  }
 });
 
 module.exports = router;

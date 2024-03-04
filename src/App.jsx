@@ -7,16 +7,17 @@ import Présentation from "./pages/Présentation";
 import Goodies from "./pages/Goodies";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
-import Member from "./pages/Member";
-import Admintrue from "./pages/Admintrue";
-import Update from "./pages/Update";
+import Member from "./pages/member/Member";
+import Admintrue from "./pages/admin/Admintrue";
+import Update from "./pages/admin/Update";
 import Delete from "./pages/Delete";
-import Add from "./pages/Add";
-import Goodiesadmin from "./pages/Goodiesadmin";
-import Presentationadmin from "./pages/Presentationadmin";
-import Contactmember from "./pages/Contactmember";
-import Presentationmember from "./pages/Presentationmember";
-import Goodiesmember from "./pages/Goodiesmember";
+import Add from "./pages/admin/Add";
+import Goodiesadmin from "./pages/admin/Goodiesadmin";
+import Presentationadmin from "./pages/admin/Presentationadmin";
+import Contactmember from "./pages/member/Contactmember";
+import Presentationmember from "./pages/member/Presentationmember";
+import Goodiesmember from "./pages/member/Goodiesmember";
+import Updateproduct from "./pages/admin/Updateproduct";
 
 const App = () => {
   
@@ -44,7 +45,7 @@ const App = () => {
           <Route path="/contactmember" element={<Contactmember />} />
           <Route path="/presentationmember" element={<Presentationmember />} />
           <Route path="/goodiesmember" element={<Goodiesmember />} />
-
+          <Route path="/updateproduct/:productId" element={<Updateproduct />} />
 
 
         </Routes>
