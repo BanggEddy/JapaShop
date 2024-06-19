@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const SignUpTemplateCopy = require("./models/SignUpModel");
 const bcrypt = require("bcrypt");
-const AdminTemplateCopy = require("./models/AdminModel");
 const ProductsTemplateCopy = require("./models/ProductsModel");
 const Product = require("./models/ProductsModel");
 const multer = require("multer");
@@ -27,24 +26,32 @@ router.post("/api/signup", async (request, response) => {
     });
 });
 
-router.post("/login", async (req, res) => {
+router.post("/api/login", async (req, res) => {
   const { username, password } = req.body;
+
   try {
-    const user = await SignUpTemplateCopy.findOne({ username: username });
-    if (!user) res.json({ success: false, message: "Invalid ID#" });
-    if (user && (await bcrypt.compare(password, user.password))) {
-      console.log(req.body);
+    const user = await SignUpTemplateCopy.findOne({ username });
+
+    if (!user) {
+      return res.json({ success: false, message: "Identifiant invalide" });
+    }
+
+    const passwordMatch = await bcrypt.compare(password, user.password);
+
+    if (passwordMatch) {
       if (user.role === "user") {
-        res.json({ success: true, redirectTo: "/membre" });
+        return res.json({ success: true, redirectTo: "/member" });
+      } else if (user.role === "admin") {
+        return res.json({ success: true, redirectTo: "/presentationadmin" });
       } else {
-        res.json({ success: false, message: "Invalid Role!" });
+        return res.json({ success: false, message: "Rôle invalide" });
       }
     } else {
-      res.json({ success: false, message: "Invalid Password!" });
+      return res.json({ success: false, message: "Mot de passe invalide" });
     }
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).json({ success: false, message: "Server Error" });
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({ success: false, message: "Erreur du serveur" });
   }
 });
 

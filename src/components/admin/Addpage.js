@@ -120,7 +120,7 @@ class Addpage extends Component {
                 <br />
                 <input
                   type="file"
-                  onChange={this.handleImageChange} // Appel de la méthode pour gérer le changement d'image
+                  onChange={this.handleImageChange}
                   style={{ height: "80px" }}
                   className="form-control form-group"
                 />

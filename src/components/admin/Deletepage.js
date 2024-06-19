@@ -20,7 +20,6 @@ const Deletepage = () => {
   const handleDelete = async (productId) => {
     try {
       await axios.delete(`/api/goodiesdelete/${productId}`);
-      // Rafraîchir la liste des produits après la suppression
       const updatedProducts = products.filter(
         (product) => product._id !== productId
       );

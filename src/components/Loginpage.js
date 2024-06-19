@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 class Loginpage extends Component {
   constructor(props) {
@@ -8,6 +8,7 @@ class Loginpage extends Component {
     this.state = {
       username: "",
       password: "",
+      error: "",
     };
 
     this.changeUsername = this.changeUsername.bind(this);
@@ -36,16 +37,21 @@ class Loginpage extends Component {
     };
 
     axios
-      .post("http://127.0.0.1:4000/login", login)
+      .post("http://127.0.0.1:4000/api/login", login)
       .then((response) => {
         console.log(response.data);
         if (response.data.success) {
-          const history = useNavigate();
-          history.push("/membre");
+          const redirectTo = response.data.redirectTo;
+          this.props.history.push(redirectTo);
+        } else {
+          this.setState({ error: response.data.message });
         }
       })
       .catch((error) => {
         console.error("Error:", error);
+        this.setState({
+          error: "Une erreur s'est produite lors de la connexion.",
+        });
       });
 
     this.setState({
@@ -91,6 +97,7 @@ class Loginpage extends Component {
                   value="Submit"
                 />
               </form>
+              {this.state.error && <p>{this.state.error}</p>}
             </div>
           </div>
         </div>

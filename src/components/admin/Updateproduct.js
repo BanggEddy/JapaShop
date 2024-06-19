@@ -7,7 +7,7 @@ const Updateproduct = () => {
   const [product, setProduct] = useState({
     nameproduct: "",
     descriptionproduct: "",
-    quantityproduct: 0, // Modifier le type de champ à "number"
+    quantityproduct: 0,
     imageproduct: null,
   });
 
